@@ -16,13 +16,11 @@ import javax.swing.DefaultComboBoxModel;
 
 import Project1p.ShowWeek;
 import Project1p.Shows;
-import javax.swing.JTextField;
 
 public class MainPanel extends JPanel{
 
 	private JLabel label;
 	private Shows allData;
-	private JTextField movieTitle;
 	
 	public MainPanel() {
 		allData = new Shows ("allData", "./Project1p/netflixAllWeeksGlobalProcessed.txt");
@@ -35,47 +33,23 @@ public class MainPanel extends JPanel{
 		label.setBounds(64, 221, 106, 20);
 		super.add(label);
 		
-		movieTitle = new JTextField();
-		movieTitle.setBounds(64, 164, 155, 22);
-		add(movieTitle);
-		movieTitle.setColumns(10);
+		JTextPane textPane = new JTextPane();
+		textPane.setBounds(64, 166, 156, 20);
+		add(textPane);
 		
 		JLabel weekLabel = new JLabel("Enter a Week (YYYY-MM-DD)");
 		weekLabel.setForeground(Color.WHITE);
 		weekLabel.setBounds(64, 151, 183, 14);
 		add(weekLabel);
 		
-		JComboBox weeksComboBox = new JComboBox();
-		weeksComboBox.setBounds(64, 56, 205, 22);
-		add(weeksComboBox);
-		
 		JComboBox movies = new JComboBox();
-		
-		
-		movies.setModel(new DefaultComboBoxModel());
+		ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek("2021-07-04");
+		movies.setModel(new DefaultComboBoxModel(new String[] {"item 1", "item 2", "item 3"}));
 		movies.setBounds(64, 242, 205, 22);
 		add(movies);
 		
-		JButton getShowsButton = new JButton("Get Shows");
-		getShowsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek(movieTitle.getText());
-				if (moviesInWeek != null && moviesInWeek.size() > 0) {
-					String [] data = new String[moviesInWeek.size()];
-					int index = 0;
-					for(ShowWeek sw : moviesInWeek) {
-						data[index] = sw.getShow_titles();
-						index++;
-					}
-					movies.setModel(new DefaultComboBoxModel(data));
-				}
-			}
-		});
-		getShowsButton.setBounds(64, 187, 106, 23);
-		add(getShowsButton);
-		
-		
-		
-		
+		JButton btnNewButton = new JButton("Get Shows");
+		btnNewButton.setBounds(64, 187, 89, 23);
+		add(btnNewButton);
 	}
 }

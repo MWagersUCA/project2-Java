@@ -8,7 +8,7 @@ public class project1main {
 
 	public static void main(String[] args) {
 		ShowWeek sw1 = new ShowWeek();
-		Shows myList = new Shows();
+		AllWeeks myList = new AllWeeks();
 		
 		// Create default Show (values set to none)
 		System.out.println(sw1);
@@ -40,7 +40,7 @@ public class project1main {
 		String myWeekList = myList.getShowsinWeek("9-12-20");
 		System.out.println(myWeekList);
 		// Create ArrayList of data from txt file
-		Shows allData = new Shows("AllShows", "netflixAllWeeksGlobalProcessed.txt");
+		AllWeeks allData = new AllWeeks("AllShows", "netflixAllWeeksGlobalProcessed.txt");
 		// Create custom list of shows from specific date(week)
 		// Test for large data
 		myWeekList = allData.getShowsinWeek("2021-09-26");

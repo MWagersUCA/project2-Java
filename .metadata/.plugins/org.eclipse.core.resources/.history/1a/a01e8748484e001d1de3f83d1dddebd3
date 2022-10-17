@@ -45,36 +45,34 @@ public class MainPanel extends JPanel{
 		weekLabel.setBounds(64, 151, 183, 14);
 		add(weekLabel);
 		
-		JComboBox weeksComboBox = new JComboBox();
-		weeksComboBox.setBounds(64, 56, 205, 22);
-		add(weeksComboBox);
-		
 		JComboBox movies = new JComboBox();
+		ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek("2021-07-04");
 		
-		
-		movies.setModel(new DefaultComboBoxModel());
+		String [] data = new String[moviesInWeek.size()];
+		int index = 0;
+		for(ShowWeek sw : moviesInWeek) {
+			data[index] = sw.getShow_titles();
+			index++;
+		}
+		movies.setModel(new DefaultComboBoxModel(data));
 		movies.setBounds(64, 242, 205, 22);
 		add(movies);
 		
-		JButton getShowsButton = new JButton("Get Shows");
-		getShowsButton.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("Get Shows");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek(movieTitle.getText());
-				if (moviesInWeek != null && moviesInWeek.size() > 0) {
-					String [] data = new String[moviesInWeek.size()];
-					int index = 0;
-					for(ShowWeek sw : moviesInWeek) {
-						data[index] = sw.getShow_titles();
-						index++;
-					}
-					movies.setModel(new DefaultComboBoxModel(data));
+				
+				String [] data = new String[moviesInWeek.size()];
+				int index = 0;
+				for(ShowWeek sw : moviesInWeek) {
+					data[index] = sw.getShow_titles();
+					index++;
 				}
 			}
 		});
-		getShowsButton.setBounds(64, 187, 106, 23);
-		add(getShowsButton);
-		
-		
+		btnNewButton.setBounds(64, 187, 89, 23);
+		add(btnNewButton);
 		
 		
 	}

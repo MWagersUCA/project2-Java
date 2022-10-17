@@ -50,6 +50,7 @@ public class MainPanel extends JPanel{
 		add(weeksComboBox);
 		
 		JComboBox movies = new JComboBox();
+		ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek("2021-07-04");
 		
 		
 		movies.setModel(new DefaultComboBoxModel());
