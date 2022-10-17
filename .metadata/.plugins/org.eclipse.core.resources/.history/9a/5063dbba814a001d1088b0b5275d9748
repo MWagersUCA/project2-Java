@@ -1,0 +1,36 @@
+package main;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.Font;
+
+public class MainPanel extends JPanel{
+	private int count;
+	private JButton push;
+	private JLabel label;
+	
+	public MainPanel() {
+		count = 0;
+		push = new JButton ("Push Me");
+		push.setFont(new Font("Times New Roman", Font.BOLD, 14));
+		push.addActionListener(new ButtonListener());
+		
+		label = new JLabel("Pushed: ");
+		super.add(label);
+		add(push);
+		
+		setBackground(Color.green);
+		setPreferredSize(new Dimension(208, 85));
+	}
+	private class ButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			label.setText("Pressed: ");
+		}
+	}
+
+}
