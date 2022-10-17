@@ -100,16 +100,6 @@ public class Shows {
 		return suggestedShows;
 	}
 	
-	public ArrayList<String> getEachWeek(){
-		ArrayList<String> weekList = new ArrayList<String>();
-		for(ShowWeek s : shows) {
-			if(!weekList.contains(s.getWeek())) {
-				weekList.add(s.getWeek());
-			}
-		}
-		return weekList;
-	}
-	
 	public ArrayList<ShowWeek> getOneWeek(String w){
 		ArrayList<ShowWeek> weekList = new ArrayList<ShowWeek>();
 		for (ShowWeek s : shows) {

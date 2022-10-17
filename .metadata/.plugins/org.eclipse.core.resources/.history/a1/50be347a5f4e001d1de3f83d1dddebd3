@@ -10,7 +10,7 @@ public class MainFrame {
 		JFrame frame = new JFrame("Netflix Database");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainPanel panel = new MainPanel();
-		Image icon = Toolkit.getDefaultToolkit().getImage("./main/NetflixLogoMini.png");
+		Image icon = Toolkit.getDefaultToolkit().getImage("./main/NetflixLogo.png");
 		frame.setIconImage(icon);
 		frame.add(panel);
 		frame.pack();
