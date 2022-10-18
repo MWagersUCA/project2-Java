@@ -65,7 +65,7 @@ public class MainPanel extends JPanel{
 	public MainPanel() {
 		allData = new Shows ("allData", "./Project1p/netflixAllWeeksGlobalProcessed.txt");
 		allWeeks = allData.getEachWeek();
-		purgedShows = new ArrayList<String>(); //collection of shows to be purged and not recommended
+		purgedShows = new ArrayList<String>();
 		setLayout(null);
 		setBackground(Color.BLACK);
 		setPreferredSize(new Dimension(767, 530));
@@ -127,7 +127,7 @@ public class MainPanel extends JPanel{
 
 		label = new JLabel("");
 		label.setIcon(new ImageIcon("./main/netflix_letters_animation.gif"));
-		label.setBounds(-120, 0, 341, 112);
+		label.setBounds(-100, 0, 341, 112);
 		add(label);
 
 		headerLabel = new JLabel("Database Control Panel");
@@ -193,7 +193,6 @@ public class MainPanel extends JPanel{
 		recommendTextArea.setBounds(405, 378, 310, 22);
 		add(recommendTextArea);
 
-		//recommends a movie that is not on the purged list
 		JButton randomMovieButton = new JButton("Recommend a Random Movie!");
 		randomMovieButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -209,7 +208,6 @@ public class MainPanel extends JPanel{
 		randomMovieButton.setBounds(405, 411, 205, 23);
 		add(randomMovieButton);
 		
-		//radio buttons for editing show data
 		JRadioButton titleRadioButton = new JRadioButton("Title");
 		titleRadioButton.setSelected(true);
 		titleRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
@@ -235,15 +233,11 @@ public class MainPanel extends JPanel{
 		hoursRadioButton.setBounds(328, 239, 142, 22);
 		add(hoursRadioButton);
 		
-		//user input for editing show data
 		textField = new JTextField();
 		textField.setBounds(493, 214, 192, 23);
 		add(textField);
 		textField.setColumns(10);
 		
-		//allows editing of data in shows
-		//allData.find() locates the index of a selected show and week and calls setter with 
-		//data from textField as the parameter
 		JButton editButton = new JButton("Edit Show");
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -295,16 +289,13 @@ public class MainPanel extends JPanel{
 		lblNewLabel_3.setBounds(328, 176, 89, 14);
 		add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon(MainPanel.class.getResource("/main/NetflixLogoMini.png")));
-		lblNewLabel_4.setBounds(711, 482, 46, 37);
-		add(lblNewLabel_4);
 		
+
+
 	}
 	
 	
-	//on close, write to file
-	//can be changed to write to read file
+	
 	public void doClose() {
 		allData.doWrite("./Project1p/textwrite.txt");
 	}
