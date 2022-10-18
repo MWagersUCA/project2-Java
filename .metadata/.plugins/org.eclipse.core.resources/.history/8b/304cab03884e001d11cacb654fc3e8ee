@@ -59,7 +59,6 @@ public class MainPanel extends JPanel{
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
 
 	public MainPanel() {
 		allData = new Shows ("allData", "./Project1p/netflixAllWeeksGlobalProcessed.txt");
@@ -175,7 +174,7 @@ public class MainPanel extends JPanel{
 		purgedCheckBox.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		purgedCheckBox.setForeground(Color.WHITE);
 		purgedCheckBox.setBackground(Color.BLACK);
-		purgedCheckBox.setBounds(405, 441, 166, 23);
+		purgedCheckBox.setBounds(405, 418, 166, 23);
 		add(purgedCheckBox);
 
 		JLabel purgedLabel = new JLabel("Shows Purged:");
@@ -188,7 +187,7 @@ public class MainPanel extends JPanel{
 		recommendTextArea.setBackground(Color.BLACK);
 		recommendTextArea.setForeground(Color.WHITE);
 		recommendTextArea.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		recommendTextArea.setBounds(405, 378, 310, 22);
+		recommendTextArea.setBounds(405, 378, 192, 22);
 		add(recommendTextArea);
 
 		JButton randomMovieButton = new JButton("Recommend a Random Movie!");
@@ -203,7 +202,7 @@ public class MainPanel extends JPanel{
 				recommendTextArea.setText(ranShow);
 			}		
 		});
-		randomMovieButton.setBounds(405, 411, 205, 23);
+		randomMovieButton.setBounds(402, 448, 205, 23);
 		add(randomMovieButton);
 		
 		JRadioButton titleRadioButton = new JRadioButton("Title");
@@ -269,10 +268,10 @@ public class MainPanel extends JPanel{
 		lblNewLabel.setBounds(60, 140, 142, 27);
 		add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("Edit a Show! Pick Week, Movie and...");
+		lblNewLabel_1 = new JLabel("Edit a Show!");
 		lblNewLabel_1.setForeground(Color.RED);
 		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(328, 142, 365, 23);
+		lblNewLabel_1.setBounds(406, 140, 205, 23);
 		add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Enter New String");
@@ -280,12 +279,6 @@ public class MainPanel extends JPanel{
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setBounds(494, 197, 137, 14);
 		add(lblNewLabel_2);
-		
-		lblNewLabel_3 = new JLabel("One of these!");
-		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 11));
-		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setBounds(328, 176, 89, 14);
-		add(lblNewLabel_3);
 
 
 	}
