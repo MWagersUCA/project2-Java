@@ -127,7 +127,7 @@ public class MainPanel extends JPanel{
 
 		label = new JLabel("");
 		label.setIcon(new ImageIcon("./main/netflix_letters_animation.gif"));
-		label.setBounds(-100, 0, 341, 112);
+		label.setBounds(-100, 0, 252, 112);
 		add(label);
 
 		headerLabel = new JLabel("Database Control Panel");

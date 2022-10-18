@@ -17,7 +17,6 @@ import javax.swing.JPanel;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.util.Timer;
 
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
@@ -32,11 +31,12 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JCheckBox;
+import javax.swing.Timer;
 
 
 public class MainPanel extends JPanel{
-	private ImageIcon image;
-	private Timer timer;
+
+
 	private JLabel lblMoviesInYour;
 	private JLabel availWeekLabel;
 	private JLabel label;
@@ -61,6 +61,7 @@ public class MainPanel extends JPanel{
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
 
 	public MainPanel() {
 		allData = new Shows ("allData", "./Project1p/netflixAllWeeksGlobalProcessed.txt");
@@ -69,8 +70,7 @@ public class MainPanel extends JPanel{
 		setLayout(null);
 		setBackground(Color.BLACK);
 		setPreferredSize(new Dimension(767, 530));
-	
-		
+
 		lblMoviesInYour = new JLabel("Movies in your week");
 		lblMoviesInYour.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		lblMoviesInYour.setForeground(Color.WHITE);
@@ -126,8 +126,8 @@ public class MainPanel extends JPanel{
 		add(availWeekLabel);
 
 		label = new JLabel("");
-		label.setIcon(new ImageIcon("./main/netflix_letters_animation.gif"));
-		label.setBounds(-100, 0, 341, 112);
+		label.setIcon(new ImageIcon("./main/NetflixName.png"));
+		label.setBounds(0, 0, 252, 112);
 		add(label);
 
 		headerLabel = new JLabel("Database Control Panel");
@@ -289,12 +289,14 @@ public class MainPanel extends JPanel{
 		lblNewLabel_3.setBounds(328, 176, 89, 14);
 		add(lblNewLabel_3);
 		
-		
+		lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setBackground(Color.BLACK);
+		lblNewLabel_4.setIcon(new ImageIcon(MainPanel.class.getResource("/main/netflix_newlogoanimation.gif")));
+		lblNewLabel_4.setBounds(-100, 0, 784, 530);
+		add(lblNewLabel_4);
 
 
 	}
-	
-	
 	
 	public void doClose() {
 		allData.doWrite("./Project1p/textwrite.txt");
