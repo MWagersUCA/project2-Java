@@ -196,7 +196,7 @@ public class Shows {
 		doWrite(altFileName);		
 	}// end of writeFile method
 
-	public void doWrite(String fn) {
+	private void doWrite(String fn) {
 		// this method writes all of the data in the persons array to a file
 		try
 		{

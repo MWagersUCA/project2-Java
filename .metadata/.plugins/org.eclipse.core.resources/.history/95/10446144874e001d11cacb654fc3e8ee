@@ -284,6 +284,6 @@ public class MainPanel extends JPanel{
 	}
 	
 	public void doClose() {
-		allData.doWrite("./Project1p/textwrite.txt");
+		allData.doWrite("./textwrite.txt");
 	}
 }

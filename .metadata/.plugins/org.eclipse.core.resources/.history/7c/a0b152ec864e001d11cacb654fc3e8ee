@@ -281,9 +281,6 @@ public class MainPanel extends JPanel{
 		add(lblNewLabel_2);
 
 
-	}
-	
-	public void doClose() {
-		allData.doWrite("./Project1p/textwrite.txt");
+
 	}
 }
