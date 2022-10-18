@@ -1,8 +1,3 @@
-//******************************
-//*Matt Wagers
-//*CSCI 3381
-//*Java Project 2
-//******************************
 package main;
 
 import java.awt.Color;
@@ -53,12 +48,6 @@ public class MainPanel extends JPanel{
 	private JRadioButton unpurgeRadioButton;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JScrollPane scrollPane_1;
-	private JTextField textField;
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JLabel recommendationLabel;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
 
 	public MainPanel() {
 		allData = new Shows ("allData", "./Project1p/netflixAllWeeksGlobalProcessed.txt");
@@ -71,11 +60,11 @@ public class MainPanel extends JPanel{
 		lblMoviesInYour = new JLabel("Movies in your week");
 		lblMoviesInYour.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		lblMoviesInYour.setForeground(Color.WHITE);
-		lblMoviesInYour.setBounds(36, 248, 205, 20);
+		lblMoviesInYour.setBounds(36, 252, 205, 20);
 		super.add(lblMoviesInYour);
 
 		weeksComboBox = new JComboBox();
-		weeksComboBox.setBounds(36, 193, 205, 22);
+		weeksComboBox.setBounds(36, 166, 205, 22);
 		String [] wdata = new String[allWeeks.size()];
 		for(int i = 0; i < allWeeks.size(); i++) {
 			wdata[i] = allWeeks.get(i);
@@ -86,7 +75,7 @@ public class MainPanel extends JPanel{
 
 		movies = new JComboBox();
 		movies.setModel(new DefaultComboBoxModel());
-		movies.setBounds(36, 269, 205, 22);
+		movies.setBounds(36, 273, 205, 22);
 		add(movies);
 
 		getShowsButton = new JButton("Get Shows");
@@ -104,7 +93,7 @@ public class MainPanel extends JPanel{
 				}
 			}
 		});
-		getShowsButton.setBounds(36, 214, 106, 23);
+		getShowsButton.setBounds(36, 187, 106, 23);
 		add(getShowsButton);
 
 		scrollPane_1 = new JScrollPane();
@@ -112,14 +101,13 @@ public class MainPanel extends JPanel{
 		add(scrollPane_1);
 
 		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		scrollPane_1.setViewportView(textArea);
 		textArea.setWrapStyleWord(true);
 
-		availWeekLabel = new JLabel("Select Week");
+		availWeekLabel = new JLabel("Available Weeks");
 		availWeekLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		availWeekLabel.setForeground(Color.WHITE);
-		availWeekLabel.setBounds(36, 178, 205, 14);
+		availWeekLabel.setBounds(36, 151, 205, 14);
 		add(availWeekLabel);
 
 		label = new JLabel("");
@@ -139,7 +127,7 @@ public class MainPanel extends JPanel{
 		purgeRadioButton.setBackground(Color.BLACK);
 		purgeRadioButton.setForeground(Color.WHITE);
 		purgeRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		purgeRadioButton.setBounds(36, 298, 109, 23);
+		purgeRadioButton.setBounds(36, 302, 109, 23);
 		add(purgeRadioButton);
 
 		unpurgeRadioButton = new JRadioButton("Unpurge");
@@ -147,7 +135,7 @@ public class MainPanel extends JPanel{
 		unpurgeRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		unpurgeRadioButton.setForeground(Color.WHITE);
 		unpurgeRadioButton.setBackground(Color.BLACK);
-		unpurgeRadioButton.setBounds(36, 324, 109, 23);
+		unpurgeRadioButton.setBounds(36, 328, 109, 23);
 		add(unpurgeRadioButton);
 
 		confirmButton = new JButton("Confirm");
@@ -167,7 +155,7 @@ public class MainPanel extends JPanel{
 				}
 			}
 		});
-		confirmButton.setBounds(151, 292, 89, 23);
+		confirmButton.setBounds(151, 296, 89, 23);
 		add(confirmButton);
 
 		JCheckBox purgedCheckBox = new JCheckBox("Include Purged Shows");
@@ -184,9 +172,6 @@ public class MainPanel extends JPanel{
 		add(purgedLabel);
 
 		JTextArea recommendTextArea = new JTextArea();
-		recommendTextArea.setBackground(Color.BLACK);
-		recommendTextArea.setForeground(Color.WHITE);
-		recommendTextArea.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		recommendTextArea.setBounds(474, 477, 192, 22);
 		add(recommendTextArea);
 
@@ -204,81 +189,6 @@ public class MainPanel extends JPanel{
 		});
 		randomMovieButton.setBounds(36, 478, 205, 23);
 		add(randomMovieButton);
-		
-		JRadioButton titleRadioButton = new JRadioButton("Title");
-		titleRadioButton.setSelected(true);
-		titleRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		titleRadioButton.setBackground(Color.BLACK);
-		titleRadioButton.setForeground(Color.WHITE);
-		buttonGroup_1.add(titleRadioButton);
-		titleRadioButton.setBounds(328, 187, 109, 23);
-		add(titleRadioButton);
-		
-		JRadioButton rankRadioButton = new JRadioButton("Rank");
-		rankRadioButton.setBackground(Color.BLACK);
-		rankRadioButton.setForeground(Color.WHITE);
-		rankRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		buttonGroup_1.add(rankRadioButton);
-		rankRadioButton.setBounds(328, 213, 109, 23);
-		add(rankRadioButton);
-		
-		JRadioButton hoursRadioButton = new JRadioButton("Hours Viewed");
-		hoursRadioButton.setForeground(Color.WHITE);
-		hoursRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		hoursRadioButton.setBackground(Color.BLACK);
-		buttonGroup_1.add(hoursRadioButton);
-		hoursRadioButton.setBounds(328, 239, 142, 22);
-		add(hoursRadioButton);
-		
-		textField = new JTextField();
-		textField.setBounds(493, 214, 192, 23);
-		add(textField);
-		textField.setColumns(10);
-		
-		JButton editButton = new JButton("Edit Show");
-		editButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(titleRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setShow_titles(textField.getText());
-				}
-				if(rankRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_rank(textField.getText());
-				}
-				if(hoursRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_hours_viewed(textField.getText());
-				}
-				
-			}
-		});
-		editButton.setBounds(339, 273, 98, 23);
-		add(editButton);
-		
-		
-		
-		recommendationLabel = new JLabel("Recommendation:");
-		recommendationLabel.setForeground(Color.WHITE);
-		recommendationLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		recommendationLabel.setBackground(Color.WHITE);
-		recommendationLabel.setBounds(474, 431, 192, 20);
-		add(recommendationLabel);
-		
-		lblNewLabel = new JLabel("Purge a Show!");
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		lblNewLabel.setBounds(60, 140, 142, 27);
-		add(lblNewLabel);
-		
-		lblNewLabel_1 = new JLabel("Edit a Show!");
-		lblNewLabel_1.setForeground(Color.RED);
-		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(406, 140, 205, 23);
-		add(lblNewLabel_1);
-		
-		lblNewLabel_2 = new JLabel("Enter New String");
-		lblNewLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setBounds(494, 197, 137, 14);
-		add(lblNewLabel_2);
 
 
 
