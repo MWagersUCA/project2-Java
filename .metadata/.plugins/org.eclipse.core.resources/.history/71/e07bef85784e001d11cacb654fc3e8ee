@@ -178,13 +178,13 @@ public class MainPanel extends JPanel{
 		JButton randomMovieButton = new JButton("Recommend a Random Movie!");
 		randomMovieButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String ranShow = allData.ranSuggest();
 				if(purgedCheckBox.isSelected()) {
+					String ranShow = allData.ranSuggest();
 					if(purgedShows.contains(ranShow)) {
 						ranShow = allData.ranSuggest();
 					}
+					recommendTextArea.setText(ranShow);
 				}
-				recommendTextArea.setText(ranShow);
 			}		
 		});
 		randomMovieButton.setBounds(36, 478, 205, 23);
