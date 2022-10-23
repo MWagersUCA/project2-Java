@@ -187,7 +187,6 @@ public class MainPanel extends JPanel{
 		add(purgedLabel);
 
 		JTextArea recommendTextArea = new JTextArea();
-		recommendTextArea.setEditable(false);
 		recommendTextArea.setBackground(Color.BLACK);
 		recommendTextArea.setForeground(Color.WHITE);
 		recommendTextArea.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
@@ -248,42 +247,14 @@ public class MainPanel extends JPanel{
 		JButton editButton = new JButton("Edit Show");
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek(weeksComboBox.getSelectedItem().toString());
 				if(titleRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setShow_titles(textField.getText());  
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
+					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setShow_titles(textField.getText());
 				}
 				if(rankRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_rank(textField.getText());  
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
+					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_rank(textField.getText());
 				}
 				if(hoursRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
 					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_hours_viewed(textField.getText());
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
 				}
 				
 			}

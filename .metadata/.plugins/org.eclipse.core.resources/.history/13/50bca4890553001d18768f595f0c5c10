@@ -187,7 +187,6 @@ public class MainPanel extends JPanel{
 		add(purgedLabel);
 
 		JTextArea recommendTextArea = new JTextArea();
-		recommendTextArea.setEditable(false);
 		recommendTextArea.setBackground(Color.BLACK);
 		recommendTextArea.setForeground(Color.WHITE);
 		recommendTextArea.setFont(new Font("Trebuchet MS", Font.BOLD, 20));

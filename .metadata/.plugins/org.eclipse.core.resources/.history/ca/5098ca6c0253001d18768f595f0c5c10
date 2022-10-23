@@ -72,7 +72,7 @@ public class MainPanel extends JPanel{
 	
 		
 		lblMoviesInYour = new JLabel("Movies in your week");
-		lblMoviesInYour.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMoviesInYour.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		lblMoviesInYour.setForeground(Color.WHITE);
 		lblMoviesInYour.setBounds(36, 248, 205, 20);
 		super.add(lblMoviesInYour);
@@ -120,7 +120,7 @@ public class MainPanel extends JPanel{
 		textArea.setWrapStyleWord(true);
 
 		availWeekLabel = new JLabel("Select Week");
-		availWeekLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		availWeekLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		availWeekLabel.setForeground(Color.WHITE);
 		availWeekLabel.setBounds(36, 178, 205, 14);
 		add(availWeekLabel);
@@ -131,7 +131,7 @@ public class MainPanel extends JPanel{
 		add(label);
 
 		headerLabel = new JLabel("Database Control Panel");
-		headerLabel.setFont(new Font("Tahoma", Font.BOLD, 36));
+		headerLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 36));
 		headerLabel.setForeground(Color.RED);
 		headerLabel.setBounds(262, 31, 453, 51);
 		add(headerLabel);
@@ -141,13 +141,13 @@ public class MainPanel extends JPanel{
 		buttonGroup.add(purgeRadioButton);
 		purgeRadioButton.setBackground(Color.BLACK);
 		purgeRadioButton.setForeground(Color.WHITE);
-		purgeRadioButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		purgeRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		purgeRadioButton.setBounds(131, 298, 109, 23);
 		add(purgeRadioButton);
 
 		unpurgeRadioButton = new JRadioButton("Unpurge");
 		buttonGroup.add(unpurgeRadioButton);
-		unpurgeRadioButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		unpurgeRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		unpurgeRadioButton.setForeground(Color.WHITE);
 		unpurgeRadioButton.setBackground(Color.BLACK);
 		unpurgeRadioButton.setBounds(131, 324, 109, 23);
@@ -174,20 +174,19 @@ public class MainPanel extends JPanel{
 		add(confirmButton);
 
 		JCheckBox purgedCheckBox = new JCheckBox("Include Purged Shows");
-		purgedCheckBox.setFont(new Font("Tahoma", Font.BOLD, 14));
+		purgedCheckBox.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		purgedCheckBox.setForeground(Color.WHITE);
 		purgedCheckBox.setBackground(Color.BLACK);
-		purgedCheckBox.setBounds(405, 441, 192, 23);
+		purgedCheckBox.setBounds(405, 441, 166, 23);
 		add(purgedCheckBox);
 
 		JLabel purgedLabel = new JLabel("Shows Purged:");
-		purgedLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		purgedLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		purgedLabel.setForeground(Color.WHITE);
 		purgedLabel.setBounds(36, 385, 137, 14);
 		add(purgedLabel);
 
 		JTextArea recommendTextArea = new JTextArea();
-		recommendTextArea.setEditable(false);
 		recommendTextArea.setBackground(Color.BLACK);
 		recommendTextArea.setForeground(Color.WHITE);
 		recommendTextArea.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
@@ -213,7 +212,7 @@ public class MainPanel extends JPanel{
 		//radio buttons for editing show data
 		JRadioButton titleRadioButton = new JRadioButton("Title");
 		titleRadioButton.setSelected(true);
-		titleRadioButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		titleRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		titleRadioButton.setBackground(Color.BLACK);
 		titleRadioButton.setForeground(Color.WHITE);
 		buttonGroup_1.add(titleRadioButton);
@@ -223,14 +222,14 @@ public class MainPanel extends JPanel{
 		JRadioButton rankRadioButton = new JRadioButton("Rank");
 		rankRadioButton.setBackground(Color.BLACK);
 		rankRadioButton.setForeground(Color.WHITE);
-		rankRadioButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		rankRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		buttonGroup_1.add(rankRadioButton);
 		rankRadioButton.setBounds(328, 213, 109, 23);
 		add(rankRadioButton);
 		
 		JRadioButton hoursRadioButton = new JRadioButton("Hours Viewed");
 		hoursRadioButton.setForeground(Color.WHITE);
-		hoursRadioButton.setFont(new Font("Tahoma", Font.BOLD, 14));
+		hoursRadioButton.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		hoursRadioButton.setBackground(Color.BLACK);
 		buttonGroup_1.add(hoursRadioButton);
 		hoursRadioButton.setBounds(328, 239, 142, 22);
@@ -248,80 +247,52 @@ public class MainPanel extends JPanel{
 		JButton editButton = new JButton("Edit Show");
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<ShowWeek> moviesInWeek = allData.getOneWeek(weeksComboBox.getSelectedItem().toString());
 				if(titleRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setShow_titles(textField.getText());  
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
+					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setShow_titles(textField.getText());
 				}
 				if(rankRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
-					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_rank(textField.getText());  
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
+					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_rank(textField.getText());
 				}
 				if(hoursRadioButton.isSelected() && weeksComboBox.getSelectedItem() != null && movies.getSelectedItem() != null) {
 					allData.find(movies.getSelectedItem().toString(), weeksComboBox.getSelectedItem().toString()).setWeekly_hours_viewed(textField.getText());
-					if (moviesInWeek != null && moviesInWeek.size() > 0) {
-						String [] data = new String[moviesInWeek.size()];
-						int index = 0;
-						for(ShowWeek sw : moviesInWeek) {
-							data[index] = sw.getShow_titles();
-							index++;
-						}
-						movies.setModel(new DefaultComboBoxModel(data));
-					}
 				}
 				
 			}
 		});
-		editButton.setBounds(328, 269, 98, 23);
+		editButton.setBounds(339, 273, 98, 23);
 		add(editButton);
 		
 		
 		
 		recommendationLabel = new JLabel("Recommendation:");
 		recommendationLabel.setForeground(Color.WHITE);
-		recommendationLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		recommendationLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		recommendationLabel.setBackground(Color.WHITE);
 		recommendationLabel.setBounds(405, 347, 192, 20);
 		add(recommendationLabel);
 		
 		lblNewLabel = new JLabel("Purge a Show!");
 		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(36, 140, 181, 27);
+		lblNewLabel.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		lblNewLabel.setBounds(60, 140, 142, 27);
 		add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("Edit a Show! Pick Week, Movie and...");
 		lblNewLabel_1.setForeground(Color.RED);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(328, 142, 387, 23);
+		lblNewLabel_1.setFont(new Font("Trebuchet MS", Font.BOLD, 20));
+		lblNewLabel_1.setBounds(328, 142, 365, 23);
 		add(lblNewLabel_1);
 		
 		lblNewLabel_2 = new JLabel("Enter New String");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2.setFont(new Font("Trebuchet MS", Font.BOLD, 14));
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setBounds(494, 197, 137, 14);
 		add(lblNewLabel_2);
 		
 		lblNewLabel_3 = new JLabel("One of these!");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_3.setFont(new Font("Trebuchet MS", Font.BOLD, 11));
 		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setBounds(328, 170, 98, 20);
+		lblNewLabel_3.setBounds(328, 176, 89, 14);
 		add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
